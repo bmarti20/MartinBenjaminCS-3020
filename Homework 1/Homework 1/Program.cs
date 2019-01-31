@@ -93,13 +93,24 @@ namespace Homework_1
                 if (i % 3 == 0 || i % 5 == 0)       // If value of i is a multiple of either 3 or 5, then it prints out onto the line
                     Console.Write("{0} ", i);
             }
-            Console.ReadLine();             // Empty line of whitespace because I'm picky about my formatting
+            Console.ReadLine();                     // Empty line of whitespace because I'm picky about my formatting
             Console.ReadKey();
         }
 
         public static void palin()
         {
-
+            string input = "";
+            Console.WriteLine("Please enter a string: ");
+            input = Console.ReadLine();             // Gets string from user
+            char[] cArray = input.ToCharArray();
+            Array.Reverse(cArray);                  // Reverses string
+            string output = new string(cArray);
+                
+            if (input == output)                    // Checks if reversed string is the same as initial string
+                Console.WriteLine("Your string is a palindrome!");
+            else
+                Console.WriteLine("Your string is not a palindrome.");
+            Console.ReadKey();
         }
     }
 }
