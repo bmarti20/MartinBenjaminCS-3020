@@ -61,7 +61,7 @@ namespace Homework_1
 
             if (!double.TryParse(Console.ReadLine(), out radius)) // Checks for invalid input
             {
-                Console.WriteLine("Invalid input. Please enter a valid temperature.");
+                Console.WriteLine("Invalid input. Please enter a valid radius.");
                 goto Sphere;
             }
 
@@ -78,7 +78,7 @@ namespace Homework_1
 
             if (!int.TryParse(Console.ReadLine(), out input)) // Checks for invalid input
             {
-                Console.WriteLine("Invalid input. Please enter a valid temperature.");
+                Console.WriteLine("Invalid input. Please enter a valid integer.");
                 goto Mult;
             }
             if (input < 0)      // Checks to make sure that input is a positive number
