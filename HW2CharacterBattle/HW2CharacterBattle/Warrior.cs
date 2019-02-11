@@ -6,9 +6,9 @@ namespace HW2CharacterBattle
 {
     public class Warrior : Character
     {
-        public Warrior(string name)
+        public Warrior(string name)     // Constructor that sets all the values for the Warrior class
         {        
-            health = 50;
+            health = 60;
             ap = 30;
             Class = 'W';
             speed = 1;
@@ -16,20 +16,20 @@ namespace HW2CharacterBattle
             this.name = name;
         }
 
-        public override void Attack(Character enemy)
+        public override void Attack(Character enemy)    // Deals regular damage to the enemy based on ATK stat
         {
             Console.WriteLine("{0} attacks {1}!", name, enemy.name);
             enemy.TakeDamage(this);
         }
 
-        public override void SpAttack(Character enemy)
+        public override void SpAttack(Character enemy)  // Deals special damage to the enemy based on SpATK stat, costs 10 AP
         {
             ap -= 10;
             Console.WriteLine("{0} casts {1} on {2}! ({0} AP: {3})", name, spellname, enemy.name, ap);
             enemy.TakeSpDamage(this);
         }
 
-        public override void TakeDamage(Character enemy)
+        public override void TakeDamage(Character enemy)    // Takes regular damage based on enemy ATK stat
         {
             switch (enemy.Class)
             {
@@ -49,7 +49,7 @@ namespace HW2CharacterBattle
             }
         }
 
-        public override void TakeSpDamage(Character enemy)
+        public override void TakeSpDamage(Character enemy)  // Takes special damage based on enemy SpATK stat
         {
             switch (enemy.Class)
             {
