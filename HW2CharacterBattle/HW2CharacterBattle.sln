@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW2CharacterBattle", "HW2CharacterBattle\HW2CharacterBattle.csproj", "{0F9DD9DB-1328-4E9A-8CF8-D934EFF26180}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F9DD9DB-1328-4E9A-8CF8-D934EFF26180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F9DD9DB-1328-4E9A-8CF8-D934EFF26180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F9DD9DB-1328-4E9A-8CF8-D934EFF26180}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F9DD9DB-1328-4E9A-8CF8-D934EFF26180}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {553B2166-3331-4619-B795-8D77CB5F6834}
+	EndGlobalSection
+EndGlobal
