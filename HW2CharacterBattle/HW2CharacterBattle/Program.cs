@@ -12,7 +12,7 @@ namespace HW2CharacterBattle
         static void Main(string[] args)
         {
             string p1name, p2name;
-
+            
             Console.WriteLine("***** Welcome to Medieval Combat! *****");
             Console.WriteLine("Player 1, enter your name: ");
             p1name = Console.ReadLine();
