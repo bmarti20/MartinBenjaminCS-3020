@@ -7,18 +7,29 @@ namespace HW3FileIOandRecursion
     {
         static void Main(string[] args)
         {
-            string filetype;
-            string path = AppDomain.CurrentDomain.BaseDirectory + @"Pictures";
-            Console.Write("Please enter what file type you would like to search for: ");
-            filetype = Console.ReadLine();
-            path += @"\*." + filetype;
-            using (StreamReader sr = new StreamReader(path))
+            string path = AppDomain.CurrentDomain.BaseDirectory + @"test.txt";
+            StreamReader sr = new StreamReader(path);
+            string filetype = sr.ReadLine();
+            string line;
+            using (sr)
             {
-                string line;
                 while ((line = sr.ReadLine()) != null)
-                    Console.WriteLine(line);
+                {
+                    SearchFiles(line);
+                }
             }
             Console.ReadKey();
+        }
+
+        static void SearchFiles(string path)
+        {
+            foreach (DirectoryInfo directory in new DirectoryInfo(path).GetDirectories())
+            {
+                Console.WriteLine(directory.ToString());
+                foreach (FileInfo file in new DirectoryInfo(directory.FullName).GetFiles())
+                    Console.WriteLine(file.ToString());
+                SearchFiles(directory.ToString());
+            }
         }
     }
 }
