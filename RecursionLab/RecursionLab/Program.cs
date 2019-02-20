@@ -8,7 +8,7 @@ namespace RecursionLab
         static void Main(string[] args)
         {
             string path = AppDomain.CurrentDomain.BaseDirectory + @"FolderTree";
-            findpath(path);
+            Console.WriteLine(findpath(path));
             Console.ReadKey();
         }
 
@@ -17,10 +17,12 @@ namespace RecursionLab
 
             foreach (DirectoryInfo directory in new DirectoryInfo(path).GetDirectories())
             {
-                
-                Console.WriteLine(directory.ToString());
+                if (directory.GetFiles() == null)
+                    return path;
+                else
+                    return findpath(directory.ToString());
             }
-            return "whatever";
+            return "finished";
         }
     }
 }
