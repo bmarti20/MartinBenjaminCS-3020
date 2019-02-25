@@ -4,12 +4,32 @@ using System.IO;
 
 namespace HW4GenericsAndInterfaces
 {
+    // public enum FileType { WAV, MP3, MP4, AVI, MOV, PNG, JPG }
+    
+    // public enum MediaType { Audio, Video, Image }
+    interface IMedia
+    {
+        string Path { get; set; }
+        FileInfo File { get; set; }
+        string[] FileType { get; set; }
+        string MediaType { get; set; }
+        DateTime DateAdded { get; set; }
+    }
+
     class Program
     {
+        static string[] filetype = { "WAV", "MP3", "MP4", "AVI", "MOV", "PNG", "JPG" };
+        static string[] mediatype = { "Audio", "Video", "Image" };
+        static IMedia med;
+
         static void Main(string[] args)
         {
+            MediaCollection<IMedia> media = new MediaCollection<IMedia>();
             int choice;
+            string path;
             Console.WriteLine("***** Welcome to the Media Manager! *****\n");
+            Console.WriteLine("Please enter a directory to operate within: ");
+            path = Console.ReadLine();
 
         choose:
             Console.WriteLine("Please choose an option: ");
@@ -31,7 +51,10 @@ namespace HW4GenericsAndInterfaces
             {
                 case 1: break;
                 case 2: break;
-                case 3: break;
+                case 3:
+                    string[] imagetype = { filetype[5], filetype[6] };
+                    med = new Image(path, new FileInfo(path), imagetype, mediatype);
+                    break;
                 case 4: break;
                 case 5: break;
                 case 6: break;
@@ -46,6 +69,9 @@ namespace HW4GenericsAndInterfaces
             Console.ReadKey();
         }
 
-        
+        static void Scan(string path, string filetype)
+        {
+
+        }
     }
 }

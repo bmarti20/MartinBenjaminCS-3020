@@ -5,26 +5,9 @@ using System.Text;
 
 namespace HW4GenericsAndInterfaces
 {
-    public enum FileType { WAV, MP3, MP4, AVI, MOV, PNG, JPG }
-    public enum MediaType { Audio, Video, Image }
-    interface IMedia
-    {
-        string Path { get; set; }
-        FileInfo File { get; set; }
-        FileType FileType { get; set; }
-        MediaType MediaType { get; set; }
-        DateTime DateAdded { get; set; }
-    }
-
-    public class MediaCollection<T> : IMedia
+    public class MediaCollection<T>
     {
         List<T> queue = new List<T>();
-
-        public string Path { get; set; }
-        public FileInfo File { get; set; }
-        public FileType FileType { get; set; }
-        public MediaType MediaType { get; set; }
-        public DateTime DateAdded { get; set; }
 
         public MediaCollection()
         {
