@@ -14,6 +14,7 @@ namespace HW5_Part_1
             this.rent = rent;
         }
 
+        // This class is necessary for IComparable to work
         public int CompareTo(Property prop)
         {
             return rent.CompareTo(prop.rent);
