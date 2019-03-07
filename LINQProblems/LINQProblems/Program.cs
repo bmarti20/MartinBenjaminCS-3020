@@ -11,9 +11,8 @@ namespace LINQProblems
     {
         static void Main(string[] args)
         {
-            FindStringsInAThatArentInB();
-            
-            GetStraightAStudents();
+            FindStringsInAThatArentInB();           // Done
+            GetStraightAStudents();                 // Done
             DetermineWhichItemWasMostProfitable();
             QueryPhoneBookEntries();
             GetAllPNG(@"C:\Users\Ryan\Pictures\"); //NOTE: READ SUMMARY COMMENT ABOVE METHOD
@@ -73,16 +72,18 @@ namespace LINQProblems
                 new Student(10, 85, 92, 93, 95),
             };
 
-            List<Student> a_students = new List<Student>();
+            List<Student> a_students = students.Where(t => t.MathGrade >= 90 && t.ScienceGrade >= 90 && t.EnglishGrade >= 90 && t.HistoryGrade >= 90).ToList();
+            foreach (Student str in a_students)
+                Console.WriteLine(str.StudentID);
 
-            foreach (Student s in students)
-            {
-                if (s.MathGrade >= 90.0
-                    && s.HistoryGrade >= 90.0
-                    && s.ScienceGrade >= 90.0
-                    && s.EnglishGrade >= 90.0)
-                        a_students.Add(s);
-            }
+            // foreach (Student s in students)
+            // {
+            //     if (s.MathGrade >= 90.0
+            //         && s.HistoryGrade >= 90.0
+            //         && s.ScienceGrade >= 90.0
+            //         && s.EnglishGrade >= 90.0)
+            //             a_students.Add(s);
+            // }
             return a_students;
         }
 
