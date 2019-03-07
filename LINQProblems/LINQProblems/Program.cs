@@ -16,7 +16,7 @@ namespace LINQProblems
             DetermineWhichItemWasMostProfitable();  // Done
             QueryPhoneBookEntries();                // Done
 
-            GetAllPNG(@"C:\Users\Ben\Desktop\pictures"); //NOTE: READ SUMMARY COMMENT ABOVE METHOD
+            GetAllPNG(@"C:\Users\Ryan\Pictures\"); //NOTE: READ SUMMARY COMMENT ABOVE METHOD
             GetFibonacciNumbers();
             SumPrimes();
             Console.ReadKey();
