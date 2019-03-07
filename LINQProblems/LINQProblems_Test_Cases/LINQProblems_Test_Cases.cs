@@ -184,8 +184,8 @@ namespace LINQProblems_Test_Cases
         [TestMethod]
         public void GetAllPNG_Test()
         {
-            List<FileInfo> testFiles = GetAllPNG(@"C:\Users\Ryan\Pictures\");
-            List<FileInfo> otherFiles = Program.GetAllPNG(@"C:\Users\Ryan\Pictures\");
+            List<FileInfo> testFiles = GetAllPNG(@"C:\Users\Ben\Desktop\pictures");
+            List<FileInfo> otherFiles = Program.GetAllPNG(@"C:\Users\Ben\Desktop\pictures");
 
             for(int i = 0; i < testFiles.Count; i++)
             {

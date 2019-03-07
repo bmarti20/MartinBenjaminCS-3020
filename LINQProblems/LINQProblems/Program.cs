@@ -13,9 +13,10 @@ namespace LINQProblems
         {
             FindStringsInAThatArentInB();           // Done
             GetStraightAStudents();                 // Done
-            DetermineWhichItemWasMostProfitable();
-            QueryPhoneBookEntries();
-            GetAllPNG(@"C:\Users\Ryan\Pictures\"); //NOTE: READ SUMMARY COMMENT ABOVE METHOD
+            DetermineWhichItemWasMostProfitable();  // Done
+            QueryPhoneBookEntries();                // Done
+
+            GetAllPNG(@"C:\Users\Ben\Desktop\pictures"); //NOTE: READ SUMMARY COMMENT ABOVE METHOD
             GetFibonacciNumbers();
             SumPrimes();
             Console.ReadKey();
@@ -108,14 +109,16 @@ namespace LINQProblems
                 new Item("Soda", 66, 1.5f),
             };
 
-            Item highestEarner = new Item("TEMP", 0, 0);
-            for (int i = 0; i < items.Count; i++)
-            {
-                if (items[i].ItemPrice * items[i].NumberOfSales > highestEarner.ItemPrice * highestEarner.NumberOfSales)
-                {
-                    highestEarner = items[i];
-                }
-            }
+            Item highestEarner = items.OrderByDescending(t => t.NumberOfSales * t.ItemPrice).ToList()[0];
+
+            Console.WriteLine(highestEarner.ItemName);
+            // for (int i = 0; i < items.Count; i++)
+            // {
+            //     if (items[i].ItemPrice * items[i].NumberOfSales > highestEarner.ItemPrice * highestEarner.NumberOfSales)
+            //     {
+            //         highestEarner = items[i];
+            //     }
+            // }
             return highestEarner;
         }
 
@@ -140,34 +143,37 @@ namespace LINQProblems
 
             Dictionary<string, List<PhoneBookEntry>> results = new Dictionary<string, List<PhoneBookEntry>>();
 
+            results.Add("Name", phoneBook.Where(t => t.Name == "Josh Jackson").ToList());
+            //results.Add("Name", new List<PhoneBookEntry>());
+            //foreach (PhoneBookEntry entry in phoneBook)
+            //{
+            //    if (entry.Name == "Josh Jackson")
+            //        results["Name"].Add(entry);
+            //}
 
-            results.Add("Name", new List<PhoneBookEntry>());
-            foreach (PhoneBookEntry entry in phoneBook)
-            {
-                if (entry.Name == "Josh Jackson")
-                    results["Name"].Add(entry);
-            }
+            results.Add("LastName", phoneBook.Where(t => t.LastName == "Jones").ToList());
+            //results.Add("LastName", new List<PhoneBookEntry>());
+            //foreach (PhoneBookEntry entry in phoneBook)
+            //{
+            //    if (entry.LastName == "Jones")
+            //        results["LastName"].Add(entry);
+            //}
 
-            results.Add("LastName", new List<PhoneBookEntry>());
-            foreach (PhoneBookEntry entry in phoneBook)
-            {
-                if (entry.LastName == "Jones")
-                    results["LastName"].Add(entry);
-            }
+            results.Add("City", phoneBook.Where(t => t.City == "Colorado Springs").ToList());
+            //results.Add("City", new List<PhoneBookEntry>());
+            //foreach (PhoneBookEntry entry in phoneBook)
+            //{
+            //    if (entry.City == "Colorado Springs")
+            //        results["City"].Add(entry);
+            //}
 
-            results.Add("City", new List<PhoneBookEntry>());
-            foreach (PhoneBookEntry entry in phoneBook)
-            {
-                if (entry.City == "Colorado Springs")
-                    results["City"].Add(entry);
-            }
-
-            results.Add("PhoneAreaCode", new List<PhoneBookEntry>());
-            foreach (PhoneBookEntry entry in phoneBook)
-            {
-                if (entry.PhoneNumber.Substring(0, 3) == "617")
-                    results["PhoneAreaCode"].Add(entry);
-            }
+            results.Add("PhoneAreaCode", phoneBook.Where(t => t.PhoneNumber.Substring(0, 3) == "617").ToList());
+            //results.Add("PhoneAreaCode", new List<PhoneBookEntry>());
+            //foreach (PhoneBookEntry entry in phoneBook)
+            //{
+            //    if (entry.PhoneNumber.Substring(0, 3) == "617")
+            //        results["PhoneAreaCode"].Add(entry);
+            //}
             return results;
         }
 
