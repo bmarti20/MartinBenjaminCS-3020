@@ -221,6 +221,7 @@ namespace LINQProblems
             
             foreach(int i in input)
             {
+                Console.WriteLine(Fibonacci(i));
                 results.Add(Fibonacci(i));
             }
             
@@ -240,22 +241,24 @@ namespace LINQProblems
         /// </summary>
         public static int SumPrimes()
         {
+            List<int> values = Enumerable.Range(2, 1000).ToList();
+            // List<int> primes = values.Where(t => t % Enumerable.Range(2, 501) != 0).ToList();
             int primeSum = 0;
-            for (int i = 2; i < 1000; i++)
-            {
-                bool isPrime = true;
-                for (int c = 2; c < i / 2 + 1; c++)
-                {
-                    if (i % c == 0)
-                    {
-                        isPrime = false;
-                    }
-                }
-                if (isPrime == true)
-                {
-                    primeSum += i;
-                }
-            }
+            // for (int i = 2; i < 1000; i++)
+            // {
+            //     bool isPrime = true;
+            //     for (int c = 2; c < i / 2 + 1; c++)
+            //     {
+            //         if (i % c == 0)
+            //         {
+            //             isPrime = false;
+            //         }
+            //     }
+            //     if (isPrime == true)
+            //     {
+            //         primeSum += i;
+            //     }
+            // }
             return primeSum;
         }
     }
