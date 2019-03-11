@@ -9,7 +9,7 @@ namespace Midterm
 {
     class VendingMachine : IEnumerable
     {
-        object[,] options = new object[5,4];
+        VendingMachineOption[,] options = new VendingMachineOption[5,4];
 
         public VendingMachine()
         {
@@ -35,12 +35,12 @@ namespace Midterm
             options[4, 3] = new Drink("Red Bull", 2.99f, 6, 140, 8, false);
         }
 
-        public object this[int x, int y]
+        public VendingMachineOption this[int x, int y]
         {
             get { return options[x, y]; }
         }
 
-        public void PrintVendingMachine(List<object> exclusions)
+        public void PrintVendingMachine(List<VendingMachineOption> exclusions)
         {
             Console.WriteLine();
             Console.WriteLine("X        A              B              C              D       ");

@@ -22,15 +22,15 @@ namespace Midterm
 
                 menuSelection = int.Parse(Console.ReadLine());
 
-                List<object> exclusions = new List<object>();
+                List<VendingMachineOption> exclusions = new List<VendingMachineOption>();
 
                 switch (menuSelection)
                 {
                     case 1:
-                        machine.PrintVendingMachine(new List<object>());
+                        machine.PrintVendingMachine(new List<VendingMachineOption>());
                         break;
                     case 2:
-                        foreach(var o in machine)
+                        foreach(VendingMachineOption o in machine)
                         {
                             if (o is Food || o is Drink)
                             {
@@ -47,7 +47,7 @@ namespace Midterm
                         machine.PrintVendingMachine(exclusions);
                         break;
                     case 3:
-                        foreach (var o in machine)
+                        foreach (VendingMachineOption o in machine)
                         {
                             if (o is NonElectronic || o is Electronic)
                             {
@@ -64,7 +64,7 @@ namespace Midterm
                         machine.PrintVendingMachine(exclusions);
                         break;
                     case 4:
-                        Console.WriteLine("Thankyou for using this program!");
+                        Console.WriteLine("Thank you for using this program!");
                         Console.ReadKey();
                         break;
                 }
