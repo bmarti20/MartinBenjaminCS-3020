@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Midterm
 {
-    abstract class VendingMachineOption 
+    abstract class VendingMachineOption
     {
         public string Name { get; set; }
         public float Price { get; set; }

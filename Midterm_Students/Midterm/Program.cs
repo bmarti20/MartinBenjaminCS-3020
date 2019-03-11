@@ -16,7 +16,7 @@ namespace Midterm
             {
                 Console.WriteLine("Please enter an integer for the option you want to select:");
                 Console.WriteLine("1. Print vending machine.");
-                Console.WriteLine("2. List only healthy food and drink.");
+                Console.WriteLine("2. List only vegetarian food and drink.");
                 Console.WriteLine("3. List toy options for kids under 7.");
                 Console.WriteLine("4. Exit Program");
 
@@ -30,20 +30,21 @@ namespace Midterm
                         machine.PrintVendingMachine(new List<VendingMachineOption>());
                         break;
                     case 2:
-                        foreach(VendingMachineOption o in machine)
-                        {
-                            if (o is Food || o is Drink)
-                            {
-                                if ((o as Food)?.CalorieCount > 100 || (o as Drink)?.CalorieCount > 100)
-                                {
-                                    exclusions.Add(o);
-                                }
-                            }
-                            else
-                            {
-                                exclusions.Add(o);
-                            }
-                        }
+                        exclusions.Add(machine.Where(t => t is Food && (t as Food)?.CalorieCount > 100 || t is Drink && (t as Drink)?.CalorieCount > 100));
+                        //foreach(VendingMachineOption o in machine)
+                        //{
+                        //    if (o is Food || o is Drink)
+                        //    {
+                        //        if ((o as Food)?.CalorieCount > 100 || (o as Drink)?.CalorieCount > 100)
+                        //        {
+                        //            exclusions.Add(o);
+                        //        }
+                        //    }
+                        //    else
+                        //    {
+                        //        exclusions.Add(o);
+                        //    }
+                        //}
                         machine.PrintVendingMachine(exclusions);
                         break;
                     case 3:

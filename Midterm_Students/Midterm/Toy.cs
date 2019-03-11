@@ -17,6 +17,5 @@ namespace Midterm
             Quantity = quantity;
             AgeRequirement = ageRequirement;
         }
-
     }
 }

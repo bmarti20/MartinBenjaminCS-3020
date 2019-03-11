@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Midterm
 {
-    class VendingMachine : IEnumerable
+    class VendingMachine : IEnumerable<VendingMachineOption> 
     {
-        VendingMachineOption[,] options = new VendingMachineOption[5,4];
+        public VendingMachineOption[,] options = new VendingMachineOption[5,4];
 
         public VendingMachine()
         {
@@ -41,7 +41,7 @@ namespace Midterm
         }
 
         public void PrintVendingMachine(List<VendingMachineOption> exclusions)
-        {
+        { 
             Console.WriteLine();
             Console.WriteLine("X        A              B              C              D       ");
             Console.WriteLine("Y ------------------------------------------------------------");
@@ -67,15 +67,14 @@ namespace Midterm
             return s.PadLeft(count + left).PadRight(15);
         }
 
-        public IEnumerator GetEnumerator()
+        public IEnumerator<VendingMachineOption> GetEnumerator()
         {
-            return options.GetEnumerator();
+            return options.Cast<VendingMachineOption>().GetEnumerator();
         }
-
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return options.GetEnumerator();
+            return options.Cast<VendingMachineOption>().GetEnumerator();
         }
     }
 }
