@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace Midterm
 {
-    class Food
+    class Food : VendingMachineOption
     {
         public float Consistency { get; private set; }
         public int ScovilleScale { get; private set; }
-        public string Name { get; private set; }
-        public float Price { get; private set; }
-        public int Quantity { get; private set; }
         public int CalorieCount { get; private set; }
         public bool IsVegetarian { get; private set; }
 
@@ -25,11 +22,6 @@ namespace Midterm
             ScovilleScale = scovilleScale;
             CalorieCount = calorieCount;
             IsVegetarian = isVegetarian;
-        }
-
-        public override string ToString()
-        {
-            return Name;
         }
     }
 }

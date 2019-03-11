@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace Midterm
 {
-    class Drink
+    class Drink : VendingMachineOption
     {
         public int SizeInOunces { get; private set; }
-        public string Name { get; private set; }
-        public float Price { get; private set; }
-        public int Quantity { get; private set; }
         public int CalorieCount { get; private set; }
         public bool IsVegetarian { get; private set; }
 
@@ -23,11 +20,6 @@ namespace Midterm
             SizeInOunces = sizeInOunces;
             CalorieCount = calorieCount;
             IsVegetarian = isVegetarian;
-        }
-
-        public override string ToString()
-        {
-            return Name;
         }
     }
 }
