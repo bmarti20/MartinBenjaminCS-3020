@@ -30,7 +30,7 @@ namespace Midterm
                         machine.PrintVendingMachine(new List<VendingMachineOption>());
                         break;
                     case 2:
-                        exclusions.Add(machine.Where(t => t is Food && (t as Food)?.CalorieCount > 100 || t is Drink && (t as Drink)?.CalorieCount > 100));
+                        exclusions.Add(machine.Where(t => t is Food));
                         //foreach(VendingMachineOption o in machine)
                         //{
                         //    if (o is Food || o is Drink)
