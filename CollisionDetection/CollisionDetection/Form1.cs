@@ -59,8 +59,8 @@ namespace CollisionDetection
             }
             /**********************************************************************/
             /* SWITCH THESE LINES OF CODE TO TEST THE DIFFERENT METHODS */
-            CollisionDetection();
-            //CollisionDetectionParallel();
+            //CollisionDetection();
+            CollisionDetectionParallel();
             /**********************************************************************/
             DrawSquares(map);
 
@@ -79,11 +79,126 @@ namespace CollisionDetection
         /// </summary>
         public void CollisionDetection()
         {
+
+        }
+
+        /// <summary>
+        /// Parallelized collision detection
+        /// YOUR CODE GOES HERE!
+        /// </summary>
+        public void CollisionDetectionParallel()
+        {
             //Reset the color of squares to black.
-            for (int i = 0; i < squares.Count; i++)
+
+            for (int i = 0; i < squares.Count; i ++)
                 squares[i].Color = Color.Black;
 
-            for(int i = 0; i < squares.Count; i++)
+            Task.Factory.StartNew(() =>
+            {
+                for (int i = 0; i < squares.Count; i += 8)
+                {
+                    for (int j = 0; j < squares.Count; j ++)
+                    {
+                        if (squares[i] != squares[j] && squares[i].IsCollidingWith(squares[j]))
+                        {
+                            squares[i].Color = Color.Red;
+                            squares[j].Color = Color.Red;
+                        }
+                    }
+                }
+            });
+
+            Task.Factory.StartNew(() =>
+            {
+                for (int i = 1; i < squares.Count; i += 8)
+                {
+                    for (int j = 0; j < squares.Count; j++)
+                    {
+                        if (squares[i] != squares[j] && squares[i].IsCollidingWith(squares[j]))
+                        {
+                            squares[i].Color = Color.Red;
+                            squares[j].Color = Color.Red;
+                        }
+                    }
+                }
+            });
+
+            Task.Factory.StartNew(() =>
+            {
+                for (int i = 2; i < squares.Count; i += 8)
+                {
+                    for (int j = 0; j < squares.Count; j++)
+                    {
+                        if (squares[i] != squares[j] && squares[i].IsCollidingWith(squares[j]))
+                        {
+                            squares[i].Color = Color.Red;
+                            squares[j].Color = Color.Red;
+                        }
+                    }
+                }
+            });
+
+            Task.Factory.StartNew(() =>
+            {
+                for (int i = 3; i < squares.Count; i += 8)
+                {
+                    for (int j = 0; j < squares.Count; j++)
+                    {
+                        if (squares[i] != squares[j] && squares[i].IsCollidingWith(squares[j]))
+                        {
+                            squares[i].Color = Color.Red;
+                            squares[j].Color = Color.Red;
+                        }
+                    }
+                }
+            });
+
+            Task.Factory.StartNew(() =>
+            {
+                for (int i = 4; i < squares.Count; i += 8)
+                {
+                    for (int j = 0; j < squares.Count; j++)
+                    {
+                        if (squares[i] != squares[j] && squares[i].IsCollidingWith(squares[j]))
+                        {
+                            squares[i].Color = Color.Red;
+                            squares[j].Color = Color.Red;
+                        }
+                    }
+                }
+            });
+
+            Task.Factory.StartNew(() =>
+            {
+                for (int i = 5; i < squares.Count; i += 8)
+                {
+                    for (int j = 0; j < squares.Count; j++)
+                    {
+                        if (squares[i] != squares[j] && squares[i].IsCollidingWith(squares[j]))
+                        {
+                            squares[i].Color = Color.Red;
+                            squares[j].Color = Color.Red;
+                        }
+                    }
+                }
+            });
+
+            Task.Factory.StartNew(() =>
+            {
+                for (int i = 6; i < squares.Count; i += 8)
+                {
+                    for (int j = 0; j < squares.Count; j++)
+                    {
+                        if (squares[i] != squares[j] && squares[i].IsCollidingWith(squares[j]))
+                        {
+                            squares[i].Color = Color.Red;
+                            squares[j].Color = Color.Red;
+                        }
+                    }
+                }
+            });
+
+            for (int i = 7; i < squares.Count; i+= 8)
             {
                 for (int j = 0; j < squares.Count; j++)
                 {
@@ -94,15 +209,6 @@ namespace CollisionDetection
                     }
                 }
             }
-        }
-
-        /// <summary>
-        /// Parallelized collision detection
-        /// YOUR CODE GOES HERE!
-        /// </summary>
-        public void CollisionDetectionParallel()
-        {
-         
         }
 
         /// <summary>
