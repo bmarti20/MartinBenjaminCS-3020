@@ -104,10 +104,153 @@ namespace FinalProject
         static void roll(Player p1, Player p2)
         {
             Random die = new Random();
-            Console.WriteLine("{0} rolls!", p1.name);
+            Console.WriteLine("\n{0} rolls!", p1.name);
             p1.changePosition(die.Next(1, 7));
             Console.WriteLine("{0} landed on {1}.", p1.name, tile[p1.position]);
+            switch (p1.position)
+            {
+                case 1: propLand(p1, p2, Monopoly[0, 0]); break;      // All Property tiles grouped together
+                case 2: propLand(p1, p2, Monopoly[0, 1]); break;
+                case 4: propLand(p1, p2, Monopoly[0, 2]); break;
+                case 6: propLand(p1, p2, Monopoly[1, 0]); break;
+                case 7: propLand(p1, p2, Monopoly[1, 1]); break;
+                case 9: propLand(p1, p2, Monopoly[1, 2]); break;
+                case 11: propLand(p1, p2, Monopoly[2, 0]); break;
+                case 12: propLand(p1, p2, Monopoly[2, 1]); break;
+                case 14: propLand(p1, p2, Monopoly[2, 2]); break;
+                case 16: propLand(p1, p2, Monopoly[3, 0]); break;
+                case 17: propLand(p1, p2, Monopoly[3, 1]); break;
+                case 19: propLand(p1, p2, Monopoly[3, 2]); break;
+                case 3:                                         // Both Chance tiles grouped together
+                case 13: chance(p1, p2); break;
+                case 8:                                         // Both Community Chest tiles grouped together
+                case 18: commChest(p1, p2); break;
+                case 15: p1.goToJail(); break;             // Go to Jail tile sends player to Jail
+                case 10: parking(p1); break;               // Player lands on Free Parking and collects the money there
+                default: break;
+            }
             Console.ReadKey();
+        }
+
+        static void propLand(Player player, Player other, Property prop)
+        {
+
+        }
+
+        static void chance(Player player, Player other)     // Contains all the chance cards and selects them randomly. Needs both p1 and p2 for Property cards
+        {
+            Random rnd = new Random();
+            int card = rnd.Next(1, 9);
+            switch (card)
+            {
+                case 1:
+                    Console.WriteLine("Advance to GO!");
+                    player.setPosition(0);
+                    break;
+                case 2:
+                    Console.WriteLine("Bank pays you dividend of $50!");
+                    player.setMoney(50);
+                    break;
+                case 3:
+                    Console.WriteLine("Get out of Jail Free!");
+                    player.outofjailfree = true;
+                    break;
+                case 4:
+                    Console.WriteLine("Go directly to Jail. Do not pass Go, do not collect $200.");
+                    player.goToJail();
+                    break;
+                case 5:
+                    Console.WriteLine("Pay $20 for each house you own and $50 for each hotel you own.");
+                    if (player.houses == 0)
+                        Console.WriteLine("You do not own any houses.");
+                    else
+                        player.setMoney(-20 * player.houses + -50 * player.hotels);
+                    break;
+                case 6:
+                    Console.WriteLine("Advance to Atlantic Avenue. If you pass Go, collect $200.");
+                    player.setPosition(11);
+                    propLand(player, other, atlantic);
+                    break;
+                case 7:
+                    Console.WriteLine("Advance to Connecticut Avenue. If you pass Go, collect $200.");
+                    player.setPosition(4);
+                    propLand(player, other, connecticut);
+                    break;
+                case 8:
+                    Console.WriteLine("Pay a poor tax of $15");
+                    player.setMoney(-15);
+                    freeparking += 15;
+                    break;
+            }
+        }
+
+        static void commChest(Player player, Player other)      // Contains all the Community Chest cards, also needs p1 and p2
+        {
+            Random rnd = new Random();
+            int card = rnd.Next(1, 9);
+            switch (card)
+            {
+                case 1:
+                    Console.WriteLine("Advance to Go!");
+                    player.setPosition(0);
+                    break;
+                case 2:
+                    Console.WriteLine("Get out of Jail Free!");
+                    player.outofjailfree = true;
+                    break;
+                case 3:
+                    Console.WriteLine("Go directly to Jail. Do not pass Go, do not collect $200.");
+                    player.goToJail();
+                    break;
+                case 4:
+                    Console.WriteLine("Pay $50 in doctor's fees");
+                    player.setMoney(-50);
+                    freeparking += 50;
+                    break;
+                case 5:
+                    Console.WriteLine("You win 2nd in a beauty contest! Collect $10.");
+                    player.setMoney(10);
+                    break;
+                case 6:
+                    Console.WriteLine("Advance to Pennsylvania Avenue.");
+                    player.setPosition(19);
+                    propLand(player, other, pennsylvania);
+                    break;
+                case 7:
+                    Console.WriteLine("Advance to New York Avenue. If you pass Go, collect $200.");
+                    player.setPosition(9);
+                    propLand(player, other, newyork);
+                    break;
+                case 8:
+                    Console.WriteLine("Advance to Pacific Avenue. If you pass Go, collect $200.");
+                    player.setPosition(16);
+                    propLand(player, other, pacific);
+                    break;
+
+            }
+        }
+
+        static void parking(Player player)      // All money from fees (Chance cards, Jail fees, etc.) go to Free Parking. 1st player who lands on it gets the money
+        {
+            if (freeparking != 0)
+            {
+                Console.WriteLine("{0} collects the ${1} that was in Free Parking!", player.name, freeparking);
+                player.setMoney(freeparking);
+                freeparking = 0;
+            }
+        }
+
+        static void listAllProps()
+        {
+            Console.WriteLine("\nProperty Name\t\tOwner\t\tRent\n");
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.WriteLine("{0, -23} {1, -15} ${2}", Monopoly[i, j].name, Monopoly[i, j].owner, Monopoly[i, j].rent);
+                }
+            }
+            Console.WriteLine();
         }
     }
 }
