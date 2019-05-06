@@ -7,21 +7,23 @@ namespace FinalProject
     class Player
     {
         public string name;
-        public int money, position, houses, hotels;
-        public bool outofjailfree, injail;
+        public int money, position, jailcounter, houses, hotels;
+        public bool injail, outofjailfree, canbuyhouses;
         public int[] monopCounter = { 0, 0, 0, 0 };
         public bool[] monopOwned = { false, false, false, false };
         public List<Property> propsOwned = new List<Property>();
 
-        public Player(string name, int money)
+        public Player(string x, int y)   // Constructor that receives name and starting money. Sets initial position to 0
         {
-            this.name = name;
-            this.money = money;
+            name = x;
+            money = y;
             position = 0;
+            jailcounter = 0;
             houses = 0;
             hotels = 0;
-            outofjailfree = false;
             injail = false;
+            outofjailfree = false;
+            canbuyhouses = false;
         }
 
         public void passGo()            // Prints out that player passed Go, adds $200 to money
@@ -36,7 +38,7 @@ namespace FinalProject
             Console.WriteLine("{0} now has ${1}.", name, money);
         }
 
-        public void changePosition(int x)      // Updates position and wraps around when passing Go
+        public void setPosition(int x)      // Updates position and wraps around when passing Go
         {
             int prevposition = position;
             position = (position + x) % 19;
@@ -46,7 +48,7 @@ namespace FinalProject
             }
         }
 
-        public void setPosition(int x)             // Sends player to a specific position while still checking to see if they pass Go
+        public void goTo(int x)             // Sends player to a specific position while still checking to see if they pass go
         {
             int prevposition = position;
             position = x;

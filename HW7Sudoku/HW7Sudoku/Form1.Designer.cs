@@ -37,9 +37,10 @@
             // 
             // NewGameButton
             // 
-            this.NewGameButton.Location = new System.Drawing.Point(654, 33);
+            this.NewGameButton.Location = new System.Drawing.Point(560, 20);
+            this.NewGameButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.NewGameButton.Name = "NewGameButton";
-            this.NewGameButton.Size = new System.Drawing.Size(75, 23);
+            this.NewGameButton.Size = new System.Drawing.Size(100, 28);
             this.NewGameButton.TabIndex = 0;
             this.NewGameButton.Text = "New Game";
             this.NewGameButton.UseVisualStyleBackColor = true;
@@ -47,9 +48,10 @@
             // 
             // CheckButton
             // 
-            this.CheckButton.Location = new System.Drawing.Point(654, 63);
+            this.CheckButton.Location = new System.Drawing.Point(560, 56);
+            this.CheckButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CheckButton.Name = "CheckButton";
-            this.CheckButton.Size = new System.Drawing.Size(75, 23);
+            this.CheckButton.Size = new System.Drawing.Size(100, 28);
             this.CheckButton.TabIndex = 1;
             this.CheckButton.Text = "Check";
             this.CheckButton.UseVisualStyleBackColor = true;
@@ -57,9 +59,10 @@
             // 
             // SolveButton
             // 
-            this.SolveButton.Location = new System.Drawing.Point(654, 92);
+            this.SolveButton.Location = new System.Drawing.Point(560, 92);
+            this.SolveButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SolveButton.Name = "SolveButton";
-            this.SolveButton.Size = new System.Drawing.Size(75, 23);
+            this.SolveButton.Size = new System.Drawing.Size(100, 28);
             this.SolveButton.TabIndex = 2;
             this.SolveButton.Text = "Solve";
             this.SolveButton.UseVisualStyleBackColor = true;
@@ -69,19 +72,21 @@
             // 
             this.textBox1.AcceptsReturn = true;
             this.textBox1.HideSelection = false;
-            this.textBox1.Location = new System.Drawing.Point(12, 16);
+            this.textBox1.Location = new System.Drawing.Point(16, 20);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(301, 274);
+            this.textBox1.Size = new System.Drawing.Size(400, 336);
             this.textBox1.TabIndex = 3;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // QuitButton
             // 
-            this.QuitButton.Location = new System.Drawing.Point(654, 415);
+            this.QuitButton.Location = new System.Drawing.Point(560, 471);
+            this.QuitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.QuitButton.Name = "QuitButton";
-            this.QuitButton.Size = new System.Drawing.Size(75, 23);
+            this.QuitButton.Size = new System.Drawing.Size(100, 28);
             this.QuitButton.TabIndex = 4;
             this.QuitButton.Text = "Quit";
             this.QuitButton.UseVisualStyleBackColor = true;
@@ -89,14 +94,15 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(748, 450);
+            this.ClientSize = new System.Drawing.Size(683, 554);
             this.Controls.Add(this.QuitButton);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.SolveButton);
             this.Controls.Add(this.CheckButton);
             this.Controls.Add(this.NewGameButton);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Sudoku";
             this.ResumeLayout(false);

@@ -9,17 +9,19 @@ namespace FinalProject
         public string name;
         public int price, rent, housePrice, position, numhouses;
         public string owner, color;
+        public bool mortgaged;
 
-        public Property(string name, int price, int rent, int housePrice, int position, string color)
+        public Property(string str, int x, int y, int z, int pos, string col)   // Constructor gets name, price, rent, house price, and position of properties. 
         {
-            this.name = name;
-            this.price = price;
-            this.rent = rent;
-            this.housePrice = housePrice;
-            this.position = position;
-            this.color = color;
+            name = str;
+            price = x;
+            rent = y;
+            housePrice = z;
+            position = pos;
             owner = "Unowned";
+            color = col;
             numhouses = 0;
+            mortgaged = false;
         }
 
         public void buildHouse(Player player)

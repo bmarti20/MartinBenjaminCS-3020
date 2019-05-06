@@ -20,10 +20,7 @@ namespace HW7Sudoku
 
             for (int i = 0; i < 81; i++)
             {
-                arr[i] = rand.Next(1, 10);
-                textBox1.Text += arr[i] + "\t";
-                if ((i + 1) % 9 == 0)
-                    textBox1.Text += "\n";
+                textBox1.Text += rand.Next(1, 10);
             }
         }
 
